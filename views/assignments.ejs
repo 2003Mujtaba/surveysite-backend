@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to Assignment Tracker</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom stylesheet for additional styling -->
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <!-- Included the header partial for consistent page header -->
+    <%- include('partials/header') %> 
+
+  <!-- Main container for the assignments content -->
+  <main class="container mt-4">
+    <h1 class="mb-4">All Assignments</h1>
+    <!-- Button to create a new assignment, positioned at the top-right of the list -->
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <a href="/assignments/new" class="btn btn-primary mb-3">Create New Assignment</a>
+    </div>
+    <!-- Loops through assignments and display each one in a card -->
+    <% assignments.forEach(assignment => { %>
+        <div class="card mb-3">
+          <div class="card-body">
+            <!-- Displays assignment title -->
+            <h5 class="card-title"><%= assignment.title %></h5>
+            <!-- Displays assignment description and so forth-->
+            <p class="card-text"><%= assignment.description %></p>
+            <p class="card-text">Due: <%= assignment.dueDate.toDateString() %></p> 
+            <p class="card-text">Priority: <%= assignment.priority %></p>
+            <!-- Edit and delete buttons for each assignment -->
+            <div class="d-flex justify-content-end">
+              <a href="/assignments/<%= assignment._id %>/edit" class="btn btn-outline-secondary me-2">Edit</a>
+              <button onclick="confirmDelete('<%= assignment._id %>')" class="btn btn-outline-danger">Delete</button>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+  </main>
+
+  <!-- Included the footer partial for consistent page footer -->
+  <%- include('partials/footer') %> 
+
+  <!-- Bootstrap JS for interactive components -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Script for the delete confirmation dialog -->
+  <script>
+    function confirmDelete(id) {
+      if (confirm('Are you sure you want to delete this assignment?')) {
+        // Makes a DELETE request to the server to delete the assignment
+        fetch('/assignments/' + id, { method: 'DELETE' })
+          .then(() => window.location.reload()) // Reloads the page if successful
+          .catch(err => alert('Error deleting assignment')); // Alerts the user if there's an error
+      }
+    }
+  </script>
+</body>
+</html>
