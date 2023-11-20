@@ -41,8 +41,9 @@ const surveyRoutes = require('./routes/surveyroutes');
 // Use survey routes
 app.use('/surveys', surveyRoutes);
 
-// Define a route for the home page to redirect to the surveys page
+// Define a route for the home page
 app.get('/', (req, res) => {
-  res.redirect('/surveys'); // Redirects to the survey listing page
+  res.render('home'); // Renders the home.ejs as the landing page
 });
+
 
