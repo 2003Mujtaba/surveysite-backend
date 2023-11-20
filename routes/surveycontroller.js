@@ -36,7 +36,8 @@ exports.surveyCreatePost = async (req, res) => {
     await survey.save();
     res.redirect('/surveys');
   } catch (error) {
-    res.status(500).send(error.message);
+    console.error(error);
+    res.status(500).send('Internal Server Error');
   }
 };
 
