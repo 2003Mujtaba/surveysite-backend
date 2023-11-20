@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 <body>
-  <% include ../partials/header.ejs %>
+  <%- include('partials/header') %>
 
   <div>
     <h2>Survey List</h2>
@@ -29,6 +29,6 @@
   
   <a href="/surveys/new" class="create-survey-link">Create New Survey</a>
   
-  <% include ../partials/footer.ejs %>
+  <%- include('partials/footer') %>
 </body>
 </html>
