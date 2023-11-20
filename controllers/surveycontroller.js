@@ -1,4 +1,4 @@
-const Survey = require('../models/survey'); // Import the Survey model
+const Survey = require('./survey'); // Import the Survey model
 
 // Display list of all surveys
 exports.listSurveys = async (req, res) => {
