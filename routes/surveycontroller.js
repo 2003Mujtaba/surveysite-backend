@@ -28,17 +28,26 @@ exports.surveyCreateGet = (req, res) => {
 // Handle survey create on POST
 exports.surveyCreatePost = async (req, res) => {
   try {
+    // Transform options from an array of strings to an array of objects
+    const transformedQuestions = req.body.questions.map(question => ({
+      questionText: question.questionText,
+      options: question.options.map(optionText => ({ optionText }))
+    }));
+
     const survey = new Survey({
       title: req.body.title,
       description: req.body.description,
-      questions: req.body.questions,               // Make sure to structure the questions input correctly on the client-side
+      questions: transformedQuestions
     });
+
     await survey.save();
     res.redirect('/surveys');
   } catch (error) {
-    res.status(500).send(error.message);
+    console.error(error);
+    res.status(500).send('Internal Server Error');
   }
 };
+
 
 // Display survey delete form on GET
 exports.surveyDeleteGet = async (req, res) => {
