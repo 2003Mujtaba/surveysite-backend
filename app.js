@@ -46,7 +46,3 @@ app.get('/', (req, res) => {
   res.redirect('/surveys'); // Redirects to the survey listing page
 });
 
-// No longer need to import or use the Assignment model and routes
-// Remove any code related to the Assignment model and routes
-
-// If there are additional models and routes you will be using, import and use them here similarly to surveyRoutes
