@@ -456,3 +456,26 @@ button[type="submit"]:hover {
     max-width: 80px; /* Smaller logo on small screens */
   }
 }
+
+/* Footer styles */
+.footer-main {
+  background-color: #343a40; /* Dark gray background */
+  color: #ffffff; /* White text color */
+  text-align: center; /* Center-align the text */
+  padding: 20px 10px; /* Padding inside the footer */
+  position: relative; /* Position relative for absolute positioning inside elements */
+  bottom: 0; /* Stick to the bottom */
+  width: 100%; /* Full width */
+}
+
+.footer-content {
+  margin: 0 auto; /* Center the content if needed */
+  max-width: 1140px; /* Max width to align with the rest of the content */
+  font-size: 14px; /* Font size for the text */
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    font-size: 12px; /* Smaller font size on smaller screens */
+  }
+}
