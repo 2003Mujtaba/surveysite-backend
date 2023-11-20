@@ -17,10 +17,7 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
 // Connects to MongoDB
-mongoose.connect(process.env.DB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
+mongoose.connect(process.env.DB_URI)
 .then(() => {
   console.log('MongoDB connected successfully.');
 
