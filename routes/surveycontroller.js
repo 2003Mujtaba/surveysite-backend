@@ -21,7 +21,7 @@ exports.surveyDetail = async (req, res) => {
 };
 
 // Display survey create form on GET
-app.surveyCreateGet = (req, res) => {
+exports.surveyCreateGet = (req, res) => {
   res.render('surveys/new-survey');
 };
 
