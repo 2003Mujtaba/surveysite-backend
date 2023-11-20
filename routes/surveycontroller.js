@@ -20,17 +20,10 @@ exports.surveyDetail = async (req, res) => {
   }
 };
 
+// Display survey create form on GET
 exports.surveyCreateGet = (req, res) => {
-  try {
-    // Attempt to render the new-survey view
-    res.render('surveys/new-survey');
-  } catch (error) {
-    // If an error occurs, log it and send a 500 server error response
-    console.error("Error rendering the survey creation form:", error);
-    res.status(500).send("An error occurred while loading the survey creation form.");
-  }
+  res.render('surveys/new-survey');
 };
-
 
 // Handle survey create on POST
 exports.surveyCreatePost = async (req, res) => {
