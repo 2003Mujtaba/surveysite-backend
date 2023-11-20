@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 <body>
-  <% include ../partials/header.ejs %>
+  <%- include('partials/header') %>
   <div class="edit-survey-form">
     <h2>Edit Survey</h2>
     
@@ -42,6 +42,6 @@
     // Similar JavaScript as in new-survey.ejs to handle adding new options dynamically
   </script>
 
-  <% include ../partials/footer.ejs %>
+  <%- include('partials/footer') %>
 </body>
 </html>
