@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const surveyController = require('./controllers/surveycontroller');
+const surveyController = require('./surveycontroller');
 
 // Route to display all surveys
 router.get('/', surveyController.listSurveys);
