@@ -6,7 +6,7 @@ const surveyController = require('./surveycontroller');
 router.get('/', surveyController.listSurveys);
 
 // Route to display the form for creating a new survey
-router.get('/new', surveyController.surveyCreateGet);
+router.get('/new-survey', surveyController.surveyCreateGet);
 
 // Route to handle the form submission for creating a new survey
 router.post('/', surveyController.surveyCreatePost);
