@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Survey List</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+  <% include ../partials/header.ejs %>
+
+  <h2>Survey List</h2>
+
+  <div>
+    <% if (surveys.length > 0) { %>
+      <ul>
+        <% surveys.forEach(function(survey) { %>
+          <li>
+            <a href="/surveys/<%= survey._id %>"><%= survey.title %></a>
+            - <a href="/surveys/<%= survey._id %>/edit">Edit</a>
+            - <form action="/surveys/<%= survey._id %>?_method=DELETE" method="POST" style="display: inline;">
+                <button type="submit">Delete</button>
+              </form>
+          </li>
+        <% }) %>
+      </ul>
+    <% } else { %>
+      <p>No surveys found.</p>
+    <% } %>
+  </div>
+
+  <a href="/surveys/new">Create New Survey</a>
+
+  <% include ../partials/footer.ejs %>
+</body>
+</html>
