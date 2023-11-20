@@ -36,7 +36,7 @@ mongoose.connect(process.env.DB_URI, {
 });
 
 // Import the survey routes
-const surveyRoutes = require('/routes/surveyRoutes');
+const surveyRoutes = require('./routes/surveyroutes');
 
 // Use survey routes
 app.use('/surveys', surveyRoutes);
