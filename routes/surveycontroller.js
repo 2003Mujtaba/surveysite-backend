@@ -31,7 +31,9 @@ exports.surveyCreatePost = async (req, res) => {
     const survey = new Survey({
       title: req.body.title,
       description: req.body.description,
-      questions: req.body.questions, // Make sure to structure the questions input correctly on the client-side
+      questions: req.body.questions, 
+      options: req.body.options,
+      responses: req.body.options,
     });
     await survey.save();
     res.redirect('/surveys');
