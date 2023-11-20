@@ -483,8 +483,7 @@ button[type="submit"]:hover {
 .survey-quote {
   font-style: italic;
   text-align: center;
-  margin-top: -20px; /* Negative value moves the element up */
-  margin-bottom: 10px; /* Reduced bottom margin to bring it closer to the title */
+  margin-bottom: 20px;
   font-size: 1.5em; /* Adjust the size as needed */
   color: #555; /* Adjust the color as needed */
 }
