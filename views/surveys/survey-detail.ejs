@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Survey Details</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+  <% include ../partials/header %>
+
+  <h1><%= survey.title %></h1>
+  <p><%= survey.description %></p>
+
+  <form action="/surveys/<%= survey._id %>/submit" method="post">
+    <% survey.questions.forEach(function(question, index) { %>
+      <div>
+        <h3>Question <%= index + 1 %>: <%= question.questionText %></h3>
+        <% question.options.forEach(function(option) { %>
+          <label>
+            <input type="radio" name="question_<%= index %>" value="<%= option.optionText %>">
+            <%= option.optionText %>
+          </label>
+        <% }) %>
+      </div>
+    <% }) %>
+    <button type="submit">Submit Survey</button>
+  </form>
+
+  <% include ../partials/footer %>
+</body>
+</html>
