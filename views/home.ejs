@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 <body>
-  <% include ../partials/header.ejs %>
+  <%- include('partials/header') %>
 
   <div class="landing-page">
     <img src="/images/teamlogo.png" alt="Team Logo" class="team-logo">
@@ -16,6 +16,6 @@
     <a href="/surveys/new" class="hero-button">Create a New Survey</a>
   </div>
 
-  <% include ../partials/footer.ejs %>
+  <%- include('partials/footer') %>
 </body>
 </html>
