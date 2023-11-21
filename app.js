@@ -1,7 +1,7 @@
 // Loads environment variables from .env file with credentials
 require('dotenv').config();
 const express = require('express');
-
+const surveyRoutes = require('./routes/surveyroutes');
 // Imports the mongoose module to interact with the MongoDB database
 const mongoose = require('mongoose');
 
@@ -15,7 +15,7 @@ app.use(methodOverride('_method'));
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
-
+app.use('/surveys', surveyRoutes);
 // Connects to MongoDB
 mongoose.connect(process.env.DB_URI)
 .then(() => {
@@ -32,11 +32,8 @@ mongoose.connect(process.env.DB_URI)
   process.exit(1); // Exits the process if MongoDB connection fails
 });
 
-// Import the survey routes
-const surveyRoutes = require('./routes/surveyroutes');
-
 // Use survey routes
-app.use('/surveys', surveyRoutes);
+
 
 // Define a route for the home page
 app.get('/', (req, res) => {
