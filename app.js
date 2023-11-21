@@ -22,7 +22,7 @@ mongoose.connect(process.env.DB_URI)
   console.log('MongoDB connected successfully.');
 
   // Start the server only after the database connection is established
-  const PORT = process.env.PORT || 8080;
+  const PORT = process.env.PORT || 3000;
   app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
   });
