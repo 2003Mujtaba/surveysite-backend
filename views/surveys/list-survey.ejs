@@ -1,0 +1,23 @@
+
+  <%- include('../partials/header') %>
+
+  <div>
+    <h2>Survey List</h2>
+    <% if (surveys.length > 0) { %>
+      <ul class="survey-list">
+        <% surveys.forEach(function(survey) { %>
+          <li class="survey-item">
+            <a href="/surveys/<%= survey._id %>"><%= survey.title %></a>
+            <form action="/surveys/<%= survey._id %>?_method=DELETE" method="POST" style="display: inline;">
+              <button type="submit" class="button-inline">Delete</button>
+            </form>
+          </li>
+        <% }) %>
+      </ul>
+    <% } else { %>
+      <p>No surveys found.</p>
+    <% } %>
+  </div>
+
+  <a href="/surveys/new" class="create-survey-link">Create New Survey</a>
+  <%- include('../partials/footer') %>
