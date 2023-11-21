@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Create New Survey</title>
-  <link rel="stylesheet" href="/stylesheets/style.css">
-</head>
-<body>
-  <%- include('partials/header') %>
+
+<%- include('../partials/header') %>
 
   <div class="form-container">
     <h2>Create New Survey</h2>
@@ -27,7 +19,7 @@
       <button type="submit">Create Survey</button>
     </form>
   </div>
-  
+
   <script>
     document.getElementById('add-question').addEventListener('click', function() {
       var container = document.getElementById('questions-container');
@@ -53,7 +45,4 @@
       });
     });
   </script>
-
-  <%- include('partials/footer') %>
-</body>
-</html>
+<%- include('../partials/footer') %>

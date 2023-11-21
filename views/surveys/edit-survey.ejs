@@ -1,16 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Edit Survey</title>
-  <link rel="stylesheet" href="/stylesheets/style.css">
-</head>
-<body>
-  <%- include('partials/header') %>
+
+  <%- include('../partials/header') %>
   <div class="edit-survey-form">
     <h2>Edit Survey</h2>
-    
     <form action="/surveys/<%= survey._id %>?_method=PUT" method="POST">
         <div>
         <label for="title">Title:</label>
@@ -20,7 +11,6 @@
         <label for="description">Description:</label>
         <textarea id="description" name="description" required><%= survey.description %></textarea>
         </div>
-        
         <% survey.questions.forEach(function(question, questionIndex) { %>
         <div class="question">
             <label for="questionText">Question:</label>
@@ -34,7 +24,6 @@
             </div>
         </div>
         <% }) %>
-        
         <button type="submit">Update Survey</button>
     </form>
   </div>
@@ -42,6 +31,4 @@
     // Similar JavaScript as in new-survey.ejs to handle adding new options dynamically
   </script>
 
-  <%- include('partials/footer') %>
-</body>
-</html>
+  <%- include('../partials/footer') %>

@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Survey List</title>
-  <link rel="stylesheet" href="/stylesheets/style.css">
-</head>
-<body>
-  <%- include('partials/header') %>
+
+  <%- include('../partials/header') %>
 
   <div>
     <h2>Survey List</h2>
@@ -26,9 +18,6 @@
       <p>No surveys found.</p>
     <% } %>
   </div>
-  
+
   <a href="/surveys/new" class="create-survey-link">Create New Survey</a>
-  
-  <%- include('partials/footer') %>
-</body>
-</html>
+  <%- include('../partials/footer') %>
