@@ -2,7 +2,7 @@
   <%- include('../partials/header') %>
   <div class="edit-survey-form">
     <h2>Edit Survey</h2>
-    <form action="/surveys/<%= survey._id %>?_method=PUT" method="POST">
+    <form action="/surveys/ method="POST">
         <div>
         <label for="title">Title:</label>
         <input type="text" id="title" name="title" value="<%= survey.title %>" required>
