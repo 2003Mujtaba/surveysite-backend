@@ -1,11 +1,15 @@
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to SurveyMaster</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
 
-  <%- include('./partials/header') %>
+  <%- include('../partials/header') %>
 
 
   <div class="survey-container">
     <h1 class="survey-title"><%= survey.title %></h1>
     <p class="survey-description"><%= survey.description %></p>
-    <form action="/surveys/<%= survey._id %>/submit" method="post">
+    <form action="/surveys" method="POST">
       <% survey.questions.forEach(function(question, index) { %>
         <div class="question">
           <h3>Question <%= index + 1 %>: <%= question.questionText %></h3>
@@ -22,4 +26,4 @@
     </form>
   </div>
 
-  <%- include('./partials/footer') %>
+  <%- include('../partials/footer') %>
