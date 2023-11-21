@@ -28,17 +28,26 @@ exports.surveyCreateGet = (req, res) => {
 // Handle survey create on POST
 exports.surveyCreatePost = async (req, res) => {
   try {
+    // Transform the options structure to match the schema
+    const formattedQuestions = req.body.questions.map(question => ({
+      questionText: question.questionText,
+      options: question.options.map(option => ({ optionText: option }))
+    }));
+
     const survey = new Survey({
       title: req.body.title,
       description: req.body.description,
-      questions: req.body.questions,               // Make sure to structure the questions input correctly on the client-side
+      questions: formattedQuestions, // Adjusted to match the schema
+      // Include any other fields if necessary
     });
+
     await survey.save();
     res.redirect('/surveys');
   } catch (error) {
     res.status(500).send(error.message);
   }
 };
+
 
 // Display survey delete form on GET
 exports.surveyDeleteGet = async (req, res) => {
