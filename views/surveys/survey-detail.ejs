@@ -10,6 +10,8 @@
     <h1 class="survey-title"><%= survey.title %></h1>
     <p class="survey-description"><%= survey.description %></p>
     <form action="/surveys" method="POST">
+      <input type="hidden" name="title" value="<%= survey.title %>">
+      <input type="hidden" name="description" value="<%= survey.description %>">
       <% survey.questions.forEach(function(question, index) { %>
         <div class="question">
           <h3>Question <%= index + 1 %>: <%= question.questionText %></h3>

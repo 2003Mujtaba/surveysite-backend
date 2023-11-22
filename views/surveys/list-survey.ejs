@@ -12,12 +12,16 @@
         <% surveys.forEach(function(survey) { %>
           <li class="survey-item">
             <a href="/surveys/<%= survey._id %>"><%= survey.title %></a>
-            <form action="/surveys/<%= survey._id %>?_method=DELETE" method="POST" style="display: inline;">
+            <form action="/surveys/<%= survey._id %>?_method=DELETE" method="POST" style="display: inline;" class="button-inline-edit">
               <button type="submit" class="button-inline">Delete</button>
+            </form>
+            <form action="/surveys/<%= survey._id %>/edit" method="GET" style="display: inline;">
+              <button type="submit" class="button-inline">Edit</button>
             </form>
           </li>
         <% }) %>
       </ul>
+      
     <% } else { %>
       <p>No surveys found.</p>
     <% } %>

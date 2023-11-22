@@ -40,15 +40,16 @@ exports.surveyCreatePost = async (req, res) => {
   }
 };
 
-// Display survey delete form on GET
+// Handle survey delete on DELETE.
 exports.surveyDeleteGet = async (req, res) => {
   try {
-    await Survey.findByIdAndRemove(req.params.id);
+    await Survey.findByIdAndDelete(req.params.id);
     res.redirect('/surveys');
   } catch (error) {
     res.status(500).send(error.message);
   }
 };
+
 
 // Display survey update form on GET
 exports.surveyUpdateGet = async (req, res) => {
