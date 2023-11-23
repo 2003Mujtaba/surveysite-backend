@@ -365,6 +365,18 @@ button[type="submit"]:hover {
   border-radius: 4px;
   cursor: pointer;
 }
+.delete-question {
+  background: #bb2828;
+  color: white;
+  padding: 7px 12px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.delete-question:hover {
+  background: #b32929;
+}
 
 .edit-survey-form .add-option:hover {
   background: #218838;
