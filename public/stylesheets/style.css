@@ -465,7 +465,7 @@ button[type="submit"]:hover {
   color: #ffffff; /* White text color */
   text-align: center; /* Center-align the text */
   padding: 20px 10px; /* Padding inside the footer */
-  position: relative; /* Position relative for absolute positioning inside elements */
+  position: fixed; /* Position relative for absolute positioning inside elements */
   bottom: 0; /* Stick to the bottom */
   width: 100%; /* Full width */
 }
