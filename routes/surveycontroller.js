@@ -71,4 +71,29 @@ exports.surveyUpdatePost = async (req, res) => {
   }
 };
 
+// Handle survey submission on POST
+exports.surveySubmitPost = async (req, res) => {
+  try {
+    // Find the survey by ID
+    const survey = await Survey.findById(req.params.id);
 
+    // Create a new response object based on the submitted answers
+    const newResponse = {
+      responses: req.body.questions.map((question, index) => {
+        return {
+          questionText: survey.questions[index].questionText,
+          response: req.body[`question_${index}`]
+        };
+      })
+    };
+
+    // Update the survey with the new response
+    survey.responses.push(newResponse);
+    await survey.save();
+
+    // Redirect or send a success message
+    res.redirect('/surveys/' + req.params.id);
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+};

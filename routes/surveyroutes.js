@@ -23,5 +23,8 @@ router.put('/:id', surveyController.surveyUpdatePost);
 // Route to handle the deletion of a survey
 router.delete('/:id', surveyController.surveyDeleteGet);
 
+// Route to handle the survey submission
+router.post('/:id/submit', surveyController.surveySubmitPost);
+
 
 module.exports = router;
