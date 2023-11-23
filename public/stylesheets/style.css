@@ -208,14 +208,15 @@ textarea {
 .add-option {
   background-color: #007bff;
   color: white;
-  padding: 8px 12px;
+  padding: 10px 20px; /* Increase padding for a larger button */
   text-align: center;
   display: inline-block;
-  font-size: 14px;
+  font-size: 16px; /* Increase font size for better readability */
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  margin-top: 10px;
+  margin-bottom: 10px;
+  transition: background-color 0.3s ease; /* Add transition for smooth color change */
 }
 
 .add-question:hover,
@@ -226,7 +227,7 @@ textarea {
 /* Submit button styling */
 button[type="submit"] {
   width: 100%;
-  padding: 10px;
+  padding: 8px;
   border: none;
   background-color: #28a745;
   color: white;
@@ -378,6 +379,7 @@ button[type="submit"]:hover {
   color: white;
   font-size: 16px;
   cursor: pointer;
+  margin-top: 10px;
 }
 
 .edit-survey-form button[type="submit"]:hover {
@@ -488,3 +490,6 @@ button[type="submit"]:hover {
   color: #555; /* Adjust the color as needed */
 }
 
+.button-inline-edit {
+  margin-right: 50px;
+}

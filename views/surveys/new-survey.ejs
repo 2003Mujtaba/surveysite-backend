@@ -1,3 +1,10 @@
+<<<<<<< HEAD
+=======
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welcome to SurveyMaster</title>
+<link rel="stylesheet" href="/stylesheets/style.css">
+>>>>>>> e67096605c3906524b6e234fc192a5b33eef3bab
 
 <%- include('../partials/header') %>
 
@@ -15,34 +22,37 @@
       <div id="questions-container">
         <!-- Question inputs will go here -->
       </div>
-      <button type="button" id="add-question">Add Question</button>
+      <button type="button" id="add-question" class="add-question">Add Question</button>
       <button type="submit">Create Survey</button>
     </form>
   </div>
 
   <script>
     document.getElementById('add-question').addEventListener('click', function() {
-      var container = document.getElementById('questions-container');
-      var questionDiv = document.createElement('div');
-      questionDiv.innerHTML = `
-        <label for="questionText">Question:</label>
-        <input type="text" name="questions[][questionText]" required>
-        <div class="options-container">
-          <label>Options:</label>
-          <input type="text" name="questions[][options][]" required>
-          <button type="button" class="add-option">Add Option</button>
-        </div>
-      `;
-      container.appendChild(questionDiv);
+  var container = document.getElementById('questions-container');
+  var questionIndex = container.getElementsByClassName('question').length;
+  var questionDiv = document.createElement('div');
+  questionDiv.className = 'question';
+  questionDiv.innerHTML = `
+    <label for="questionText">Question:</label>
+    <input type="text" name="questions[${questionIndex}][questionText]" required>
+    <div class="options-container">
+      <label>Options:</label>
+      <input type="text" name="questions[${questionIndex}][options][0][optionText]" required>
+      <button type="button" class="add-option">Add Option</button>
+    </div>
+  `;
+  container.appendChild(questionDiv);
 
-      questionDiv.querySelector('.add-option').addEventListener('click', function() {
-        var optionsContainer = this.parentNode;
-        var input = document.createElement('input');
-        input.type = 'text';
-        input.name = 'questions[][options][]';
-        input.required = true;
-        optionsContainer.insertBefore(input, this);
-      });
-    });
+  questionDiv.querySelector('.add-option').addEventListener('click', function() {
+    var optionsContainer = this.parentNode;
+    var optionIndex = optionsContainer.querySelectorAll('input[type=text]').length;
+    var input = document.createElement('input');
+    input.type = 'text';
+    input.name = `questions[${questionIndex}][options][${optionIndex}][optionText]`;
+    input.required = true;
+    optionsContainer.insertBefore(input, this);
+  });
+});
   </script>
 <%- include('../partials/footer') %>

@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> e67096605c3906524b6e234fc192a5b33eef3bab
 // Standard library imports
 const express = require('express');
 const mongoose = require('mongoose');
@@ -45,6 +48,7 @@ app.get('/', (req, res) => {
 });
 
 // ...any additional routes or error handling
+<<<<<<< HEAD
 =======
 // Standard library imports
 const express = require('express');
@@ -93,3 +97,5 @@ app.get('/', (req, res) => {
 
 // ...any additional routes or error handling
 >>>>>>> 377f5eea09c2bade15a28d727f8af98d87b7bdd7
+=======
+>>>>>>> e67096605c3906524b6e234fc192a5b33eef3bab
